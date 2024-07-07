@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -57,5 +58,12 @@ class UserController extends AbstractController
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
         ]);
+    }
+    #[Route('/', name: 'user_create', methods: ['POST'])]
+    public function createUser(Request $request): Response
+    {
+        return $this->render('user/index.html.twig', [
+            'controller_name' => 'UserController',
+            ]);
     }
 }
